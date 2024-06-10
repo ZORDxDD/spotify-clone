@@ -17,7 +17,7 @@ async function getSongs(folder) {
 
     currFolder=folder
 
-    let a = await fetch(`https://github.com/realnilesh/spotify-clone/tree/main/songs/${currFolder}/`)
+    let a = await fetch(`/songs/${currFolder}/`)
 
     let response = await a.text();
     // console.log(response)
@@ -77,7 +77,7 @@ const playMusic=(track,pause=false)=>{
 }
 
 async function displayAlbums(){
-    let a = await fetch(`https://github.com/realnilesh/spotify-clone/tree/main/songs`)
+    let a = await fetch(`/songs`)
 
     let response = await a.text();
     // console.log(response)
@@ -94,7 +94,7 @@ async function displayAlbums(){
         if(e.href.includes("/spotify-clone/songs/")){
             // console.log(e.href.split("/").slice(-2)[0]);
             let folder=e.href.split("/").slice(-2)[0];
-            let a = await fetch(`https://github.com/realnilesh/spotify-clone/tree/main/songs/${folder}/info.json`);
+            let a = await fetch(`/songs/${folder}/info.json`);
 
             let response = await a.json();
             cardContainer.innerHTML=cardContainer.innerHTML+ `<div data-folder="${folder}" class="card">
