@@ -1,0 +1,56 @@
+.border{
+    border: 2px solid black;
+}
+
+.invert{
+    filter: invert(1);
+}
+
+.bg-grey{
+    background-color: #121212;
+}
+
+.m1{
+    margin: 6px;
+}
+.p1{
+    padding: 6px;
+}
+
+.rounded{
+    border-radius: 10px;
+}
+.flex{
+    display: flex;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    /* box-shadow: inset 0 0 5px grey; */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #131313; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1b1b1b; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #242323; 
+  }
