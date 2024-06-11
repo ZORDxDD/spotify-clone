@@ -17,7 +17,7 @@ async function getSongs(folder) {
 
     currFolder=folder
 
-    let a = await fetch(`/songs${currFolder}`)
+    let a = await fetch(`../songs${currFolder}`)
 
     let response = await a.text();
     // console.log(response)
@@ -61,7 +61,7 @@ async function getSongs(folder) {
 
 const playMusic=(track,pause=false)=>{
    
-    currentSong.src=`/songs${currFolder}`+track
+    currentSong.src=`../songs${currFolder}`+track
     if(!pause){
     currentSong.play()
     play.src="img/pause.svg"
@@ -77,7 +77,7 @@ const playMusic=(track,pause=false)=>{
 }
 
 async function displayAlbums(){
-    let a = await fetch(`/songs`)
+    let a = await fetch(`../songs`)
 
     let response = await a.text();
     // console.log(response)
@@ -91,14 +91,14 @@ async function displayAlbums(){
         const e = array[index];
         
     
-        if(e.href.includes("/spotify-clone/songs/")){
+        if(e.href.includes("../songs/")){
             // console.log(e.href.split("/").slice(-2)[0]);
             let folder=e.href.split("/").slice(-2)[0];
-            let a = await fetch(`/songs/${folder}/info.json`);
+            let a = await fetch(`../songs/${folder}/info.json`);
 
             let response = await a.json();
             cardContainer.innerHTML=cardContainer.innerHTML+ `<div data-folder="${folder}" class="card">
-               <img class="rounded" src="/spotify-clone/songs/${folder}/cover.jpeg" alt="">
+               <img class="rounded" src="../songs/${folder}/cover.jpeg" alt="">
                 <h4>${response.title}</h4>
                 <p>${response.description}</p>
                 <div class="play">
@@ -118,7 +118,7 @@ async function displayAlbums(){
             // console.log(e)
             e.addEventListener("click",async item=>{
                 // console.log(item,item.currentTarget.dataset)
-                songs=await getSongs(`/${item.currentTarget.dataset.folder}/`)
+                songs=await getSongs(`../${item.currentTarget.dataset.folder}/`)
             })
         })
    
