@@ -134,7 +134,7 @@ async function displayAlbums(){
 
 
 async function main() {
-    await getSongs("/copy/")
+    await getSongs("copy")
     console.log(songs)
 
     playMusic(songs[Math.floor(1+Math.random()*(songs.length-1))],true)
